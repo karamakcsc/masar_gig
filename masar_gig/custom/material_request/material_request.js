@@ -1,11 +1,11 @@
 frappe.ui.form.on('Material Request', {
     refresh: function(frm) {
-        if (frm.doc.is_local) {
+        if (frm.doc.__islocal == 1) {
             setDefaultRequester(frm);
         }
     },
     onload: function(frm) {
-        if (frm.doc.is_local) {
+        if (frm.doc.__islocal == 1) {
             setDefaultRequester(frm);
         }
     }
