@@ -25,15 +25,15 @@ frappe.ui.form.on('Material Request', {
                 var emp_name = r.message;
                 console.log("Test 1", emp_name);
                 frappe.model.set_value(frm.doc.doctype, frm.doc.name, "custom_requester", emp_name);
-                frm_refresh_field("custom_requester");
-                console.log("Test 2", frm.doc.custom_requester)
+                frm.refresh_field("custom_requester");
+                console.log("Test 2", frm.doc.custom_requester);
             }
         }
     });
   }
 
   function setReadOnly(frm) {
-    if (frm.doc.workflow_state == "Draft") {
+    if (frm.doc.workflow_state == "Manager Approval") {
         if (!frappe.user.has_role('Request Approver')) {
             frm.set_read_only(true);
         }
