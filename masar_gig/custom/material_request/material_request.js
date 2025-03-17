@@ -1,14 +1,20 @@
 frappe.ui.form.on('Material Request', {
     refresh: function(frm) {
-        setDefaultRequester(frm);
+        if (frm.doc.is_local) {
+            setDefaultRequester(frm);
+        }
         setReadOnly(frm);
     },
     setup: function(frm) {
-        setDefaultRequester(frm);
+        if (frm.doc.is_local) {
+            setDefaultRequester(frm);
+        }
         setReadOnly(frm);
     },
     onload: function(frm) {
-        setDefaultRequester(frm);
+        if (frm.doc.is_local) {
+            setDefaultRequester(frm);
+        }
         setReadOnly(frm);
     }
   });
@@ -31,12 +37,3 @@ frappe.ui.form.on('Material Request', {
         }
     });
   }
-
-  function setReadOnly(frm) {
-    if (frm.doc.workflow_state == "Manager Approval") {
-        if (!frappe.user.has_role('Request Approver')) {
-            frm.set_read_only(true);
-        }
-    }
-  }
-  ////
