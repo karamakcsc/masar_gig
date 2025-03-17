@@ -3,19 +3,11 @@ frappe.ui.form.on('Material Request', {
         if (frm.doc.is_local) {
             setDefaultRequester(frm);
         }
-        setReadOnly(frm);
-    },
-    setup: function(frm) {
-        if (frm.doc.is_local) {
-            setDefaultRequester(frm);
-        }
-        setReadOnly(frm);
     },
     onload: function(frm) {
         if (frm.doc.is_local) {
             setDefaultRequester(frm);
         }
-        setReadOnly(frm);
     }
   });
 
