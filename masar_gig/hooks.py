@@ -137,13 +137,12 @@ doctype_js = {"Material Request" : "custom/material_request/material_request.js"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Material Request": {
+		"validate": "masar_gig.custom.material_request.material_request.validate",
+        "on_update": "masar_gig.custom.material_request.material_request.on_update"
+	}
+}
 
 # Scheduled Tasks
 # ---------------
@@ -242,3 +241,24 @@ doctype_js = {"Material Request" : "custom/material_request/material_request.js"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+fixtures = [
+    {"dt": "Custom Field", "filters": [
+        [
+            "name", "in", [
+                "Material Request-custom_section_break_nbpmo",
+                "Material Request-custom_requester",
+                "Material Request-custom_column_break_upw6h",
+                "Material Request-custom_full_name",
+                "Material Request-custom_reports_to",
+                "Material Request-custom_manager_name",
+                "Material Request-custom_department",
+                "Material Request-custom_justification",
+                "Material Request-custom_priority",
+                "Material Request-custom_prices_inquiry",
+                "Material Request-custom_total",
+                "Material Request Item-custom_supplier_quotation_item",
+                "Material Request Item-custom_supplier_quotation"
+            ]
+        ]
+    ]}
+]
